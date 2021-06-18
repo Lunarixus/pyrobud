@@ -129,7 +129,7 @@ would type `.help` to run the command. All other commands work the same way,
 save for snippet replacements which are used with `/snipname/` anywhere in a
 message.
 
-## Deployment
+## Deployment (Linux)
 
 For long-term server deployments, an example systemd service is available
 [here](https://github.com/kdrag0n/pyrobud/blob/master/systemd/pyrobud.service).
@@ -168,3 +168,6 @@ Feel free to join the [official support group](https://t.me/pyrobud) on Telegram
 for help or general discussion regarding the bot. You may also
 [open an issue on GitHub](https://github.com/pyrobud/pyrobud/issues) for bugs,
 suggestions, or anything else relevant to the project.
+
+For kdrag0n's benefit it is probably best that those using Windows should not report  
+their bugs directly to kdrag0n as it is not officially supported.  
