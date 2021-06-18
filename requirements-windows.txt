@@ -1,0 +1,15 @@
+aiorun
+msgpack
+Pillow
+emoji
+beauty-print
+aiohttp
+meval
+colorlog
+plyvel-win32
+tomlkit
+ratelimit
+sentry_sdk
+telethon
+speedtest_cli
+
