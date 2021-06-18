@@ -2,7 +2,7 @@
     <img width="200" height="200" src="https://raw.githubusercontent.com/kdrag0n/pyrobud/master/assets/logo.png">
 </p>
 
-<h1 align="center">Pyrobud</h1>
+<h1 align="center">Pyrobud - With unofficial Windows support.</h1>
 
 <p align="center">
     <a href="https://github.com/kdrag0n/pyrobud/releases"><img src="https://img.shields.io/github/v/tag/kdrag0n/pyrobud?sort=semver" alt="Latest tag"></a>
@@ -19,18 +19,7 @@ the [Telethon](https://github.com/LonamiWebs/Telethon) library.
 
 A working installation of **Python 3.6** or newer is required to run Pyrobud.
 
-## Compatibility
-
-Pyrobud should be compatible with all major operating systems. While it has not
-been officially tested on Windows or macOS, there should not be anything
-preventing it from working on those platforms. Please let me know if you've
-gotten it working so I can add it here.
-
-It is also possible to run the bot on a smartphone. On Android it can be done
-with the [Termux](https://wiki.termux.com/wiki/Main_Page) app, and on iOS it
-should be possible using the [iSH](https://ish.app/) app.
-
-## Installation
+## Installation (Linux/Windows/macOS)
 
 ### Native dependencies
 
@@ -99,7 +88,7 @@ to make it work.
 
 Upgrade to pip 19 to fix this issue: `pip3 install -U pip`
 
-## Configuration
+## Configuration (Linux/Windows)
 
 Copy `config.example.toml` to `config.toml` and edit the settings as desired.
 Each and every setting is documented by the comments above it.
@@ -110,7 +99,7 @@ Obtain the API ID and hash from [Telegram's website](https://my.telegram.org/app
 Configuration must be complete before starting the bot for the first time for it
 to work properly.
 
-## Usage
+## Usage (Linux/Windows)
 
 To start the bot, type `python3 main.py` if you are running it in-place or use
 command corresponding to your chosen installation method above.
