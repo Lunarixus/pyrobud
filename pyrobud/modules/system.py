@@ -51,19 +51,33 @@ class SystemModule(module.Module):
     @command.alias("si")
     async def cmd_sysinfo(self, ctx: command.Context) -> str:
         await ctx.respond("Collecting system information...")
+        if sys.platform != 'win32':
+            
+            try:
+                stdout, _, ret = await util.system.run_command(
+                    "neofetch", "--stdout", timeout=60
+                )
+            except asyncio.TimeoutError:
+                return "🕑 `neofetch` failed to finish within 1 minute."
+            except FileNotFoundError:
+                return "❌ [neofetch](https://github.com/dylanaraps/neofetch) must be installed on the host system."
 
-        try:
-            stdout, _, ret = await util.system.run_command(
-                "neofetch", "--stdout", timeout=60
-            )
-        except asyncio.TimeoutError:
-            return "🕑 `neofetch` failed to finish within 1 minute."
-        except FileNotFoundError:
-            return "❌ [neofetch](https://github.com/dylanaraps/neofetch) must be installed on the host system."
+            err = f"⚠️ Return code: {ret}" if ret != 0 else ""
+            sysinfo = "\n".join(stdout.split("\n")[2:]) if ret == 0 else stdout
+            return f"```{sysinfo}```{err}"
+        elif sys.platform == 'win32':
+            try:
+                stdout, _, ret = await util.system.run_command(
+                    "neofetch", "-na", timeout=60
+                )
+            except asyncio.TimeoutError:
+                return "🕑 `neofetch` failed to finish within 1 minute."
+            except FileNotFoundError:
+                return "❌ [neofetch] must be installed on the host system, try `pip install neofetch-win`"
 
-        err = f"⚠️ Return code: {ret}" if ret != 0 else ""
-        sysinfo = "\n".join(stdout.split("\n")[2:]) if ret == 0 else stdout
-        return f"```{sysinfo}```{err}"
+            err = f"⚠️ Return code: {ret}" if ret != 0 else ""
+            sysinfo = "\n".join(stdout.split("\n")[2:]) if ret == 0 else stdout
+            return f"```{sysinfo}```{err}"
 
     @command.desc("Test Internet speed")
     @command.alias("stest", "st")
