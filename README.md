@@ -45,7 +45,7 @@ install that first. Below are instructions for some common operating systems:
 | Termux       | `apt install leveldb`        |
 | FreeBSD      | `pkg install leveldb`        |
 
-### Using Docker
+### Using Docker (Linux)
 
 Simply run `docker run --rm -itv "$PWD/data:/data" kdrag0n/pyrobud` to run the
 latest unstable version with the data directory set to `data` in the current
@@ -58,7 +58,7 @@ Note that the official Docker image only supports Linux x86_64. Other operating
 systems and architectures are not supported. However, pull requests contributing
 such support are welcome.
 
-### Using pip
+### Using pip (Linux)
 
 When using pip, it's highly recommended to install everything inside a virtual
 environment to minimize contamination of the system Python install, since many
@@ -75,43 +75,20 @@ may conflict with the system package manager's installed packages, which can
 cause trouble down the road and errors when upgrading conflicting packages.
 **You have been warned.**
 
-### Stable
-
-You can obtain the latest stable version from PyPI:
-
-`python3 -m pip install pyrobud`
-
-If are able to install libffi and OpenSSL development headers, installing the
-fast variant is highly recommended:
-
-`python3 -m pip install pyrobud[fast]`
-
-The native dependencies can be installed on Ubuntu with the following command:
-
-`apt install libffi-dev libssl-dev`
-
-You will need to find the corresponding packages on your OS or distribution of
-choice in order for the fast variant to install successfully.
-
-Without the fast variant's `cryptg` encryption accelerator, the bot will be
-**extremely slow** when dealing with any files — even small ones. Download and
-upload speeds can be as slow as kilobytes per second without it.
-
-### Bleeding-edge
+### Installation (Linux/Windows)
 
 First, clone this Git repository locally:
 `git clone https://github.com/kdrag0n/pyrobud`
 
-After that, you can run `python3 -m pip install .` to install the bot along with
-the bare minimum dependencies. However, including the `fast` extras is highly
-recommended to improve performance: `python3 -m pip install .[fast]`
+For Linux users you can run `python3 -m pip install .` to install the bare minimum  
+however, it is also recommended that you use `python3 -m pip install .[fast]` for  
+the most optimum experience.
 
-Read the section above for more information on what `fast` does and why you
+For Windows users you can run `pip install -r requirements-windows.txt` to get all of  
+the win32 dependencies required for this bot.
+
+Linux users should read the section above to learn about what `fast` does and why they  
 should use it.
-
-Once it's installed, you can choose to invoke it using the `pyrobud` command, or
-run the bot in-place (which is described later in the Usage section). Running it
-in-place is recommended to allow for automatic updates via Git.
 
 #### Error: `Directory '.' is not installable. File 'setup.py' not found.`
 
